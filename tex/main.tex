@@ -1,8 +1,6 @@
-\documentclass[a4paper]{article}
+\documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[english,russian]{babel}
-
-% \usepackage{geometry}
 
 \usepackage[a4paper,
 mag=1000, includefoot,
@@ -15,7 +13,6 @@ left=3cm, right=1.5cm, top=2cm, bottom=2cm, headsep=1cm, footskip=1cm]{geometry}
 
 \usepackage{array}
 \usepackage[position=below]{subfig}
-
 \usepackage{hhline}
 
 \title{Применение стохастического градиентного спуска в обобщенных линейных моделях}
@@ -23,17 +20,6 @@ left=3cm, right=1.5cm, top=2cm, bottom=2cm, headsep=1cm, footskip=1cm]{geometry}
 
 \begin{document}
 \maketitle
-
-% \section{Постановка задачи}
-% Дана зависимая переменная $\mathbf{y}$ и матрица данных $\mathbf{X}$. Предположим, что зависимая переменная имеет распределение, входящее в экспоненциальное семейство. Модель:
-% \[
-% \mathsf{E}(\mathbf{y}~|~\mathbf{X})=\mathsf{\boldsymbol{\mu}}=g^{-1}\left(\mathbf{X}\boldsymbol{\beta}\right),
-% \]
-% где $\boldsymbol{\beta}$ --- вектор параметров, $g$ --- линк-функция. Задача: найти такой вектор параметров $\hat{\boldsymbol{\beta}}$, что
-% \[
-% \hat{\boldsymbol{\beta}}=\operatorname*{argmax}_{\boldsymbol{\beta}}\sum_{i=1}^n \ln p(y_i;\boldsymbol{\beta}),
-% \]
-% где $p(y_i; \boldsymbol{\beta})$ --- функция правдоподобия в точке $y_i$.
 
 \section{Теоретическая часть}
 \subsection{Линейная регрессия}
@@ -64,7 +50,7 @@ left=3cm, right=1.5cm, top=2cm, bottom=2cm, headsep=1cm, footskip=1cm]{geometry}
 \[
     p(y; k, \theta) = \frac{y^{k-1}}{\Gamma(k)\theta^k}\exp\left\{-\frac{y}{\theta}\right\},\quad y > 0,\quad k, \theta > 0.
 \]
-Модель гамма распределения выбирается, когда известно, что зависимая переменная принимает только положителньые значения (в отличие от линейной модели, где зависимая переменная принимает любые значения), например, она представляет собой некоторый физический показатель.
+Модель гамма-регрессии выбирается, когда известно, что зависимая переменная принимает только положителньые значения (в отличие от линейной модели, где зависимая переменная принимает любые значения), например, она представляет собой некоторый физический показатель.
 
 Математическое ожидание и дисперсия гамма-распределения равны соответственно $\mu=\theta/\phi$ и $\mu^2 \phi$, где $\phi=1/k$. Перепараметризуем плотность:
 \[
